@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES :=
+SOURCES := GY_521.cpp
 
 # header files in this project
-HEADERS := 
+HEADERS := GY_521.hpp
 
 # other places to look for files for this project
 SEARCH  := 
