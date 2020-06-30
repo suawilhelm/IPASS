@@ -1,0 +1,126 @@
+\hypertarget{classGY__521}{}\doxysection{G\+Y\+\_\+521 Class Reference}
+\label{classGY__521}\index{GY\_521@{GY\_521}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGY__521_a8a06c3ef9f51f0ba94ece6c27662d60b}{G\+Y\+\_\+521}} (hwlib\+::i2c\+\_\+bus \&bus, uint8\+\_\+t register\+To\+Select)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classGY__521}{G\+Y\+\_\+521}}. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classGY__521_acd63dfaf10f64e81918779af0c58580d}{value}} ()
+\begin{DoxyCompactList}\small\item\em Return value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGY__521_a36fb98901a4b56627db6c91c8846bb65}{wake\+Up\+Call}} (hwlib\+::i2c\+\_\+bus \&bus)
+\begin{DoxyCompactList}\small\item\em wake up call \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classGY__521_adc77ea4c6e6cc4e2f24dfabdf2cd0d53}{combine\+Value}} (uint8\+\_\+t register\+To\+Combine)
+\begin{DoxyCompactList}\small\item\em Combines value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file G\+Y\+\_\+521.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGY__521_a8a06c3ef9f51f0ba94ece6c27662d60b}\label{classGY__521_a8a06c3ef9f51f0ba94ece6c27662d60b}} 
+\index{GY\_521@{GY\_521}!GY\_521@{GY\_521}}
+\index{GY\_521@{GY\_521}!GY\_521@{GY\_521}}
+\doxysubsubsection{\texorpdfstring{GY\_521()}{GY\_521()}}
+{\footnotesize\ttfamily G\+Y\+\_\+521\+::\+G\+Y\+\_\+521 (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+bus \&}]{bus,  }\item[{uint8\+\_\+t}]{register\+To\+Select }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classGY__521}{G\+Y\+\_\+521}}. 
+
+This constructor is used to construct a selected register of the G\+Y-\/521. The bus is need to send data to the selected register. 
+
+Definition at line 19 of file G\+Y\+\_\+521.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                        :}
+\DoxyCodeLine{20         bus(bus),}
+\DoxyCodeLine{21         registerToSelect(registerToSelect)}
+\DoxyCodeLine{22     \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGY__521_adc77ea4c6e6cc4e2f24dfabdf2cd0d53}\label{classGY__521_adc77ea4c6e6cc4e2f24dfabdf2cd0d53}} 
+\index{GY\_521@{GY\_521}!combineValue@{combineValue}}
+\index{combineValue@{combineValue}!GY\_521@{GY\_521}}
+\doxysubsubsection{\texorpdfstring{combineValue()}{combineValue()}}
+{\footnotesize\ttfamily uint16\+\_\+t G\+Y\+\_\+521\+::combine\+Value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{register\+To\+Combine }\end{DoxyParamCaption})}
+
+
+
+Combines value. 
+
+This function is used to write and read the selected registers and combines the values and returns it. To get both the plus and minus values of one sensor. 
+
+Definition at line 17 of file G\+Y\+\_\+521.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18     \{    GY\_521::bus.i2c\_bus::write(GY\_521::address).write(GY\_521::registerToSelect);}
+\DoxyCodeLine{19         uint8\_t firstValue =  GY\_521::bus.read(GY\_521::address).read\_byte();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         GY\_521::bus.i2c\_bus::write(GY\_521::address).write(registerToCombine);}
+\DoxyCodeLine{22         uint8\_t secondValue =  GY\_521::bus.read(GY\_521::address).read\_byte();}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(firstValue<<8 | secondValue);}
+\DoxyCodeLine{24     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGY__521_acd63dfaf10f64e81918779af0c58580d}\label{classGY__521_acd63dfaf10f64e81918779af0c58580d}} 
+\index{GY\_521@{GY\_521}!value@{value}}
+\index{value@{value}!GY\_521@{GY\_521}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily uint16\+\_\+t G\+Y\+\_\+521\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return value. 
+
+This function is used to write and read the selected register of the G\+Y-\/521 and return the value of the selected register. 
+
+Definition at line 5 of file G\+Y\+\_\+521.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                           \{}
+\DoxyCodeLine{6         GY\_521::bus.i2c\_bus::write(GY\_521::address).write(GY\_521::registerToSelect);}
+\DoxyCodeLine{7         uint8\_t returnValue =  GY\_521::bus.i2c\_bus::read(GY\_521::address).read\_byte();}
+\DoxyCodeLine{8         \textcolor{keywordflow}{return} returnValue;}
+\DoxyCodeLine{9     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGY__521_a36fb98901a4b56627db6c91c8846bb65}\label{classGY__521_a36fb98901a4b56627db6c91c8846bb65}} 
+\index{GY\_521@{GY\_521}!wakeUpCall@{wakeUpCall}}
+\index{wakeUpCall@{wakeUpCall}!GY\_521@{GY\_521}}
+\doxysubsubsection{\texorpdfstring{wakeUpCall()}{wakeUpCall()}}
+{\footnotesize\ttfamily void G\+Y\+\_\+521\+::wake\+Up\+Call (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+bus \&}]{bus }\end{DoxyParamCaption})}
+
+
+
+wake up call 
+
+This function is used to wake the sensor up. If the G\+Y-\/521 is disconnected from the energy source, he will be in the sleep state. To wake him up u need to use this function to read and write transactions from the G\+Y-\/521. ~\newline
+ 
+
+Definition at line 11 of file G\+Y\+\_\+521.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                                             \{}
+\DoxyCodeLine{12         \textcolor{keyword}{auto} start = GY\_521::bus.i2c\_bus::write(GY\_521::address);}
+\DoxyCodeLine{13         start.write(WAKE\_UP);}
+\DoxyCodeLine{14         start.write(0);}
+\DoxyCodeLine{15     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+G\+Y\+\_\+521.\+hpp\item 
+G\+Y\+\_\+521.\+cpp\end{DoxyCompactItemize}

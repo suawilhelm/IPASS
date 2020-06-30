@@ -1,0 +1,127 @@
+\hypertarget{classMPU__6050}{}\doxysection{M\+P\+U\+\_\+6050 Class Reference}
+\label{classMPU__6050}\index{MPU\_6050@{MPU\_6050}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMPU__6050_a778b221bf4450902d6908194804a7cc1}{M\+P\+U\+\_\+6050}} (hwlib\+::i2c\+\_\+bus \&bus, uint8\+\_\+t register\+To\+Select)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classMPU__6050}{M\+P\+U\+\_\+6050}}. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classMPU__6050_a9c8471cbcf48c84b1da157acd9c947bb}{value}} ()
+\begin{DoxyCompactList}\small\item\em Return value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMPU__6050_a948e07af6a1dab9cc11cbf47d80e691c}{wake\+Up\+Call}} ()
+\begin{DoxyCompactList}\small\item\em wake up call \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classMPU__6050_a12ba03c871fc9ed795617428a803fe0b}{combine\+Value}} (uint8\+\_\+t register\+To\+Combine)
+\begin{DoxyCompactList}\small\item\em Combines value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 6 of file mpu\+\_\+6050.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMPU__6050_a778b221bf4450902d6908194804a7cc1}\label{classMPU__6050_a778b221bf4450902d6908194804a7cc1}} 
+\index{MPU\_6050@{MPU\_6050}!MPU\_6050@{MPU\_6050}}
+\index{MPU\_6050@{MPU\_6050}!MPU\_6050@{MPU\_6050}}
+\doxysubsubsection{\texorpdfstring{MPU\_6050()}{MPU\_6050()}}
+{\footnotesize\ttfamily M\+P\+U\+\_\+6050\+::\+M\+P\+U\+\_\+6050 (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+bus \&}]{bus,  }\item[{uint8\+\_\+t}]{register\+To\+Select }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classMPU__6050}{M\+P\+U\+\_\+6050}}. 
+
+This constructor is used to construct a selected register of the M\+P\+U-\/6050. The bus is need to send data to the selected register. 
+
+Definition at line 19 of file mpu\+\_\+6050.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                          :}
+\DoxyCodeLine{20         bus(bus),}
+\DoxyCodeLine{21         registerToSelect(registerToSelect)}
+\DoxyCodeLine{22     \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMPU__6050_a12ba03c871fc9ed795617428a803fe0b}\label{classMPU__6050_a12ba03c871fc9ed795617428a803fe0b}} 
+\index{MPU\_6050@{MPU\_6050}!combineValue@{combineValue}}
+\index{combineValue@{combineValue}!MPU\_6050@{MPU\_6050}}
+\doxysubsubsection{\texorpdfstring{combineValue()}{combineValue()}}
+{\footnotesize\ttfamily uint16\+\_\+t M\+P\+U\+\_\+6050\+::combine\+Value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{register\+To\+Combine }\end{DoxyParamCaption})}
+
+
+
+Combines value. 
+
+This function is used to write and read the selected registers and combines the values and returns it. To get both the plus and minus values of one sensor. 
+
+Definition at line 17 of file mpu\+\_\+6050.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18     \{    MPU\_6050::bus.i2c\_bus::write(MPU\_6050::address).write(MPU\_6050::registerToSelect);}
+\DoxyCodeLine{19         uint8\_t firstValue =  MPU\_6050::bus.read(MPU\_6050::address).read\_byte();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         MPU\_6050::bus.i2c\_bus::write(MPU\_6050::address).write(registerToCombine);}
+\DoxyCodeLine{22         uint8\_t secondValue =  MPU\_6050::bus.read(MPU\_6050::address).read\_byte();}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(firstValue<<8 | secondValue);}
+\DoxyCodeLine{24     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMPU__6050_a9c8471cbcf48c84b1da157acd9c947bb}\label{classMPU__6050_a9c8471cbcf48c84b1da157acd9c947bb}} 
+\index{MPU\_6050@{MPU\_6050}!value@{value}}
+\index{value@{value}!MPU\_6050@{MPU\_6050}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily uint16\+\_\+t M\+P\+U\+\_\+6050\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return value. 
+
+This function is used to write and read the selected register of the M\+P\+U-\/6050 and return the value of the selected register. ~\newline
+ 
+
+Definition at line 5 of file mpu\+\_\+6050.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                             \{}
+\DoxyCodeLine{6         MPU\_6050::bus.i2c\_bus::write(MPU\_6050::address).write(MPU\_6050::registerToSelect);}
+\DoxyCodeLine{7         uint8\_t returnValue =  MPU\_6050::bus.i2c\_bus::read(MPU\_6050::address).read\_byte();}
+\DoxyCodeLine{8         \textcolor{keywordflow}{return} returnValue;}
+\DoxyCodeLine{9     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMPU__6050_a948e07af6a1dab9cc11cbf47d80e691c}\label{classMPU__6050_a948e07af6a1dab9cc11cbf47d80e691c}} 
+\index{MPU\_6050@{MPU\_6050}!wakeUpCall@{wakeUpCall}}
+\index{wakeUpCall@{wakeUpCall}!MPU\_6050@{MPU\_6050}}
+\doxysubsubsection{\texorpdfstring{wakeUpCall()}{wakeUpCall()}}
+{\footnotesize\ttfamily void M\+P\+U\+\_\+6050\+::wake\+Up\+Call (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+wake up call 
+
+This function is used to wake the sensor up. If the M\+P\+U-\/6050 is disconnected from the energy source, he will be in the sleep state. To wake him up u need to use this function to read and write transactions from the G\+Y-\/521. ~\newline
+ 
+
+Definition at line 11 of file mpu\+\_\+6050.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                              \{}
+\DoxyCodeLine{12         \textcolor{keyword}{auto} start = MPU\_6050::bus.i2c\_bus::write(MPU\_6050::address);}
+\DoxyCodeLine{13         start.write(WAKE\_UP);}
+\DoxyCodeLine{14         start.write(0);}
+\DoxyCodeLine{15     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+mpu\+\_\+6050.\+hpp\item 
+mpu\+\_\+6050.\+cpp\end{DoxyCompactItemize}
