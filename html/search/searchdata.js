@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "cmrvw",
   1: "m",
   2: "cmvw",
-  3: "r"
+  3: "mr"
 };
 
 var indexSectionNames =

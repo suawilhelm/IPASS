@@ -1,0 +1,16 @@
+/*! \mainpage MPU-6050 library
+ *The MPU-6050 libary is designed for use in combination with the GY-521 module. 
+ *
+ * \subsection Author 
+ *Sua Wilhelm
+ *
+ * \subsection version
+ *1.0 (last modified 2020-06-30)
+
+ * \subsection Copyright
+ *boost license
+ *https://www.boost.org/LICENSE_1_0.txt
+ *
+ *
+ *The MPU-6050 libary is designed for use in combination with the GY-521 module. 
+ */
