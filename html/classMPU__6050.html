@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor for <a class="el" href="classMPU__6050.html">MPU_6050</a>. </p>
-<p>This constructor is used to construct a selected register of the MPU-6050. The bus is need to send data to the selected register. </p>
+<p>This constructor is used to construct a selected register of the MPU-6050. The bus is needed to send data to the selected register. </p>
 
 <p class="definition">Definition at line <a class="el" href="mpu__6050_8hpp_source.html#l00019">19</a> of file <a class="el" href="mpu__6050_8hpp_source.html">mpu_6050.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                         :</div>
@@ -152,7 +152,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Combines value. </p>
-<p>This function is used to write and read the selected registers and combines the values and returns it. To get both the plus and minus values of one sensor. </p>
+<p>This function is used to write and read the selected registers and combines the values and returns it, to get both the plus and minus values of one sensor. </p>
 
 <p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00017">17</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {    MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(MPU_6050::registerToSelect);</div>
@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>wake up call </p>
-<p>This function is used to wake the sensor up. If the MPU-6050 is disconnected from the energy source, he will be in the sleep state. To wake him up u need to use this function to read and write transactions from the GY-521. <br  />
+<p>This function is used to wake the sensor up. If the MPU-6050 is disconnected from the energy source, he will be in the sleep state. To wake him up you need to use this function to read and write transactions from the GY-521. <br  />
  </p>
 
 <p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00011">11</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>

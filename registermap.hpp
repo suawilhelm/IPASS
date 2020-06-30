@@ -1,4 +1,4 @@
-//----------[ GY_521 Register Map ]-----------
+//----------[ MPU-6050 Register Map ]-----------
 //----------[ Core for spirit level ]----------------
 #define WAKE_UP            0x6B
 #define ACCEL_YOUT_H       0x3D
