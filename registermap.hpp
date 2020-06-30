@@ -1,5 +1,5 @@
 //----------[ GY_521 Register Map ]-----------
-//----------[ Core for Level ]----------------
+//----------[ Core for spirit level ]----------------
 #define WAKE_UP            0x6B
 #define ACCEL_YOUT_H       0x3D
 #define ACCEL_YOUT_L       0x3E
