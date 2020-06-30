@@ -87,7 +87,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpu__6050_8hpp_source.html#l00006">6</a> of file <a class="el" href="mpu__6050_8hpp_source.html">mpu_6050.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpu__6050_8hpp_source.html#l00010">10</a> of file <a class="el" href="mpu__6050_8hpp_source.html">mpu_6050.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a778b221bf4450902d6908194804a7cc1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a778b221bf4450902d6908194804a7cc1">&#9670;&nbsp;</a></span>MPU_6050()</h2>
@@ -126,11 +126,11 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for <a class="el" href="classMPU__6050.html">MPU_6050</a>. </p>
 <p>This constructor is used to construct a selected register of the MPU-6050. The bus is needed to send data to the selected register. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpu__6050_8hpp_source.html#l00019">19</a> of file <a class="el" href="mpu__6050_8hpp_source.html">mpu_6050.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                         :</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        bus(bus),</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        registerToSelect(registerToSelect)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {}</div>
+<p class="definition">Definition at line <a class="el" href="mpu__6050_8hpp_source.html#l00023">23</a> of file <a class="el" href="mpu__6050_8hpp_source.html">mpu_6050.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                         :</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        bus(bus),</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        registerToSelect(registerToSelect)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -154,14 +154,14 @@ Public Member Functions</h2></td></tr>
 <p>Combines value. </p>
 <p>This function is used to write and read the selected registers and combines the values and returns it, to get both the plus and minus values of one sensor. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00017">17</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {    MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(MPU_6050::registerToSelect);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        uint8_t firstValue =  MPU_6050::bus.read(MPU_6050::address).read_byte();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(registerToCombine);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        uint8_t secondValue =  MPU_6050::bus.read(MPU_6050::address).read_byte();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(firstValue&lt;&lt;8 | secondValue);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00021">21</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {    MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(MPU_6050::registerToSelect);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        uint8_t firstValue =  MPU_6050::bus.read(MPU_6050::address).read_byte();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(registerToCombine);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        uint8_t secondValue =  MPU_6050::bus.read(MPU_6050::address).read_byte();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(firstValue&lt;&lt;8 | secondValue);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -184,12 +184,12 @@ Public Member Functions</h2></td></tr>
 <p>This function is used to write and read the selected register of the MPU-6050 and return the value of the selected register. <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00005">5</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                            {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(MPU_6050::registerToSelect);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        uint8_t returnValue =  MPU_6050::bus.i2c_bus::read(MPU_6050::address).read_byte();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">return</span> returnValue;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00009">9</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                            {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        MPU_6050::bus.i2c_bus::write(MPU_6050::address).write(MPU_6050::registerToSelect);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        uint8_t returnValue =  MPU_6050::bus.i2c_bus::read(MPU_6050::address).read_byte();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">return</span> returnValue;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,12 +212,12 @@ Public Member Functions</h2></td></tr>
 <p>This function is used to wake the sensor up. If the MPU-6050 is disconnected from the energy source, he will be in the sleep state. To wake him up you need to use this function to read and write transactions from the GY-521. <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00011">11</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                             {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">auto</span> start = MPU_6050::bus.i2c_bus::write(MPU_6050::address);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        start.write(WAKE_UP);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        start.write(0);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="mpu__6050_8cpp_source.html#l00015">15</a> of file <a class="el" href="mpu__6050_8cpp_source.html">mpu_6050.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                             {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">auto</span> start = MPU_6050::bus.i2c_bus::write(MPU_6050::address);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        start.write(WAKE_UP);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        start.write(0);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>

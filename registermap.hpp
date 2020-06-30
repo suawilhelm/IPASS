@@ -1,3 +1,7 @@
+//          Copyright Sua Wilhelm  2020.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          https://www.boost.org/LICENSE_1_0.txt)
 //----------[ MPU-6050 Register Map ]-----------
 //----------[ Core for spirit level ]----------------
 #define WAKE_UP            0x6B
